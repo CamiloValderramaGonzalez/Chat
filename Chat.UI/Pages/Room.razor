@@ -1,0 +1,61 @@
+﻿@page "/room/{roomName}"
+@using Microsoft.AspNetCore.SignalR.Client
+@using Microsoft.AspNetCore.Components.Authorization
+@inject NavigationManager NavigationManager
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<AuthorizeView>
+    <Authorized>
+        <h1>@roomName Chat Room </h1>
+
+        <input type="text" @bind-value="message" />
+        <button @onclick="SendMessage">Send</button>
+
+        <ul id="messages">
+            @foreach (var message in messages)
+            {
+                <li>@message</li>
+            }
+        </ul>
+    </Authorized>
+</AuthorizeView>
+@code {
+    [Parameter]
+    public string? roomName { get; set; }
+    public string? userName { get; set; }
+    private string message;
+    private List<string> messages = new List<string>();
+    private HubConnection hubConnection;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity.IsAuthenticated)
+        {
+            userName = user.Identity.Name;
+        }
+
+        hubConnection = new HubConnectionBuilder()
+        .WithUrl(NavigationManager.ToAbsoluteUri("/chathub"))
+        .Build();
+
+        hubConnection.On<string, string>("ReceiveMessage", async (r, m) =>
+        {
+            await InvokeAsync(() =>
+            {
+                messages.Add($"{r} - {m}");
+                StateHasChanged();
+            });
+        });
+
+        await hubConnection.StartAsync();
+        await hubConnection.SendAsync("JoinRoom", roomName);
+    }
+    private async Task SendMessage()
+    {
+        await hubConnection.SendAsync("SendMessage", userName, message, roomName);
+        message = "";
+    }
+}
