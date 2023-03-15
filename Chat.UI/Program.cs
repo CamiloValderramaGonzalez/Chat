@@ -1,3 +1,7 @@
+using Chat.Application.Interfaces;
+using Chat.Application.Services;
+using Chat.Domain.Interfaces;
+using Chat.Infrastructure.Repository;
 using Chat.UI.Areas.Identity;
 using Chat.UI.Data;
 using Chat.UI.Hubs;
@@ -18,6 +22,17 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSignalR();
 builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
+
+builder.Services.AddTransient<IPostService, PostService>();
+builder.Services.AddTransient<IPostRepository, PostRepository>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy", builder => builder.AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+    );
+});
 
 var app = builder.Build();
 
@@ -42,12 +57,15 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.UseCors("CorsPolicy");
+
 app.MapControllers();
 
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapHub<ChatHub>("/chathub");
 });
+
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
 

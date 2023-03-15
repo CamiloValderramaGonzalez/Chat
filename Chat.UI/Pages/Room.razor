@@ -45,13 +45,14 @@
         {
             await InvokeAsync(() =>
             {
-                messages.Add($"{r} - {m}");
+                messages.Add($"{r}: {m}");
                 StateHasChanged();
             });
         });
 
         await hubConnection.StartAsync();
         await hubConnection.SendAsync("JoinRoom", roomName);
+
     }
     private async Task SendMessage()
     {

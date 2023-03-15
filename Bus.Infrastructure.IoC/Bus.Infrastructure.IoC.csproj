@@ -14,10 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Bot.Application\Bot.Application.csproj" />
     <ProjectReference Include="..\Bus.Domain\Bus.Domain.csproj" />
     <ProjectReference Include="..\Bus.Infrastructure\Bus.Infrastructure.csproj" />
-    <ProjectReference Include="..\Chat.Domain\Bus.Domain.csproj" />
-    <ProjectReference Include="..\Chat.Infrastructure.Bus\Bus.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

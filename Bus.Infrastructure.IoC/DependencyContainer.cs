@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using Bus.Domain.Bus;
-using Bus.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
@@ -10,7 +9,9 @@ namespace Bus.Infrastructure.IoC
 {
     public static class DependencyContainer
     {
-        public static IServiceCollection RegisterServices(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection RegisterServices(
+            this IServiceCollection services, 
+            IConfiguration configuration)
         {
             //MediatR Mediator
             services.AddMediatR(Assembly.GetExecutingAssembly());

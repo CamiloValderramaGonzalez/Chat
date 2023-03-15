@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Bus.Domain\Bus.Domain.csproj" />
-    <ProjectReference Include="..\Chat.Domain\Bus.Domain.csproj" />
   </ItemGroup>
 
 </Project>
