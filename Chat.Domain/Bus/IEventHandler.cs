@@ -1,6 +1,6 @@
-﻿using Chat.Domain.Events;
+﻿using Bus.Domain.Events;
 
-namespace Chat.Domain.Bus
+namespace Bus.Domain.Bus
 {
     public interface IEventHandler<in TEvent> : IEventHandler
         where TEvent : Event

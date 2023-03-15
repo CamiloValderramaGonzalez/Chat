@@ -1,12 +1,12 @@
 ﻿using MediatR;
-using Chat.Domain.Bus;
-using Chat.Infrastructure.Bus;
+using Bus.Domain.Bus;
+using Bus.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using System.Reflection;
 
-namespace Chat.Infrastructure.IoC
+namespace Bus.Infrastructure.IoC
 {
     public static class DependencyContainer
     {
@@ -24,6 +24,5 @@ namespace Chat.Infrastructure.IoC
 
             return services;
         }
-
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Chat.Infrastructure.Bus
+﻿namespace Bus.Infrastructure
 {
     public class RabbitMQSettings
     {

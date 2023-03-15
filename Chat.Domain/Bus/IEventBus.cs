@@ -1,7 +1,7 @@
-﻿using Chat.Domain.Commands;
-using Chat.Domain.Events;
+﻿using Bus.Domain.Commands;
+using Bus.Domain.Events;
 
-namespace Chat.Domain.Bus
+namespace Bus.Domain.Bus
 {
     public interface IEventBus
     {

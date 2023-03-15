@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace Chat.Domain.Events
+namespace Bus.Domain.Events
 {
     public abstract class Message : IRequest<bool>
     {

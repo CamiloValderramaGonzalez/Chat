@@ -1,6 +1,6 @@
-﻿using Chat.Domain.Events;
+﻿using Bus.Domain.Events;
 
-namespace Chat.Domain.Commands
+namespace Bus.Domain.Commands
 {
     public abstract class Command : Message
     {

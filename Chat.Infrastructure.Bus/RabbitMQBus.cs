@@ -1,6 +1,6 @@
-﻿using Chat.Domain.Bus;
-using Chat.Domain.Commands;
-using Chat.Domain.Events;
+﻿using Bus.Domain.Bus;
+using Bus.Domain.Commands;
+using Bus.Domain.Events;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
@@ -9,7 +9,7 @@ using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
 
-namespace Chat.Infrastructure.Bus
+namespace Bus.Infrastructure
 {
     public class RabbitMQBus : IEventBus
     {
