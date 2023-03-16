@@ -1,11 +1,6 @@
 ﻿using Chat.Application.Interfaces;
 using Chat.Domain.Interfaces;
 using Chat.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Chat.Application.Services
 {
@@ -21,6 +16,16 @@ namespace Chat.Application.Services
         public void SetPost(Post post)
         {
             _postRespository.SetPost(post);
+        }
+
+        public void AddPostLog(PostLog post)
+        {
+            _postRespository.AddPostLog(post);
+        }
+
+        public async Task<List<string>> GetPostLogs(string room)
+        {
+            return await _postRespository.GetPostLogs(room);
         }
     }
 }

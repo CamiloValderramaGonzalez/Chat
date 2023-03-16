@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Chat.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230316161323_postLog_table")]
+    [Migration("20230316183723_postLog_table")]
     partial class postLog_table
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,7 +24,7 @@ namespace Chat.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("Chat.UI.Data.Models.PostLog", b =>
+            modelBuilder.Entity("Chat.Domain.Models.PostLog", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

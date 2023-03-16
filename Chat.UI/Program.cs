@@ -23,19 +23,21 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddSignalR();
 builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
 
 builder.Services.AddTransient<IPostService, PostService>();
 builder.Services.AddTransient<IPostRepository, PostRepository>();
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("CorsPolicy", builder => builder.AllowAnyOrigin()
-    .AllowAnyMethod()
-    .AllowAnyHeader()
-    );
-});
+builder.Services.AddCors(options => options.AddPolicy("CorsPolicy",
+        builder =>
+        {
+            builder
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials()
+                .SetIsOriginAllowed(_ => true);
+        }));
+builder.Services.AddSignalR();
 
 var app = builder.Build();
 
@@ -74,6 +76,6 @@ using var scope = app.Services.CreateScope();
 var services = scope.ServiceProvider;
 
 var context = services.GetRequiredService<ApplicationDbContext>();
-     context.Database.Migrate();
+context.Database.Migrate();
 
 app.Run();

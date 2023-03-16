@@ -1,8 +1,10 @@
 ﻿@page "/room/{roomName}"
+@using Chat.Application.Interfaces;
 @using Microsoft.AspNetCore.SignalR.Client
 @using Microsoft.AspNetCore.Components.Authorization
 @inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
+@inject IPostService _postService
 
 <AuthorizeView>
     <Authorized>
@@ -36,6 +38,8 @@
         {
             userName = user.Identity.Name;
         }
+
+        messages = await _postService.GetPostLogs(roomName);
 
         hubConnection = new HubConnectionBuilder()
         .WithUrl(NavigationManager.ToAbsoluteUri("/chathub"))

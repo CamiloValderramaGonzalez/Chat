@@ -15,7 +15,10 @@ namespace Chat.UI.Hubs
 
         public async Task SendMessage(string user, string message, string room)
         {
-            if (VerifyCommand(message)) SendCommand(user, message.Trim(), room);
+            if (VerifyCommand(message))
+                SendCommand(user, message.Trim(), room);
+            else
+                AddPostLog(user, message.Trim(), room);
 
             await Clients.Group(room).SendAsync("ReceiveMessage", user, message.Trim());
         }
@@ -37,6 +40,17 @@ namespace Chat.UI.Hubs
         private void SendCommand(string user, string message, string room)
         {
             _postService.SetPost(new Post { User = user, Message = message, Room = room });
+        }
+        private void AddPostLog(string user, string message, string room)
+        {
+            _postService.AddPostLog(
+                new PostLog
+                {
+                    User = user,
+                    Message = message,
+                    Room = room,
+                    TimeSpan = DateTime.Now
+                });
         }
     }
 }

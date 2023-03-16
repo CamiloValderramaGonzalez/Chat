@@ -1,29 +1,37 @@
 ﻿using Bus.Domain.Events;
+using Chat.Application.Interfaces;
 using Chat.Domain.Models;
 using Chat.UI.Hubs;
-using MediatR;
-using Microsoft.AspNetCore.Components;
+using Chat.UI.Pages;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.AspNetCore.SignalR.Client;
-using System.Security.AccessControl;
 
 namespace Chat.UI.Controllers
 {
-    [Microsoft.AspNetCore.Mvc.Route("api/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class ChatApiController : ControllerBase
     {
         private readonly IHubContext<ChatHub> _hubContext;
+        private readonly IPostService _postService;
 
-        public ChatApiController(IHubContext<ChatHub> hubContext)
+        public ChatApiController(IHubContext<ChatHub> hubContext, IPostService postService)
         {
             _hubContext = hubContext;
+            _postService = postService;
         }
 
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Post post)
         {
+            _postService.AddPostLog(new PostLog
+            {
+                User = post.User,
+                Message = post.Message,
+                Room = post.Room
+            });
+
             await _hubContext.Clients.Group(post.Room).SendAsync("ReceiveMessage", post.User, post.Message);
             return Ok(post);
         }
