@@ -21,11 +21,19 @@ namespace Chat.Infrastructure.Repository
                 Newtonsoft.Json.JsonConvert.SerializeObject(post), Encoding.UTF8, "application/json");
 
             using var client = new HttpClient();
-            var request = new HttpRequestMessage(HttpMethod.Post, "http://localhost:5212/api/Post");
-            //var request = new HttpRequestMessage(HttpMethod.Post, "http://Producer.Api:5212/api/Post");
+            //var request = new HttpRequestMessage(HttpMethod.Post, "http://localhost:5212/api/Post");
+            var request = new HttpRequestMessage(HttpMethod.Post, "http://Producer.Api/api/Post");
             request.Content = content;
 
-            var response = await client.SendAsync(request);
+            try
+            {
+                var response = await client.SendAsync(request);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
         }
 
         public async Task AddPostLog(PostLog postLog)
@@ -38,9 +46,10 @@ namespace Chat.Infrastructure.Repository
         {
             var totalPosts = _context.PostLog.Count(x => x.Room == room);
             return await _context.PostLog
-                .OrderBy(o => o.TimeSpan)
                 .Where(x => x.Room == room)
+                .OrderByDescending(o => o.TimeSpan)
                 .Take(Math.Min(totalPosts, 50))
+                .OrderBy(o => o.TimeSpan)
                 .Select(x => $"{x.User}: {x.Message}")
                 .ToListAsync();
         }

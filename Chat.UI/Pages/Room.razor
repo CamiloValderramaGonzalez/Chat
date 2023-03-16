@@ -42,8 +42,8 @@
         messages = await _postService.GetPostLogs(roomName);
 
         hubConnection = new HubConnectionBuilder()
-        .WithUrl(NavigationManager.ToAbsoluteUri("/chathub"))
-        .Build();
+          .WithUrl($"{Environment.GetEnvironmentVariable("HTTPLOCALHOST")}/chathub")
+          .Build();
 
         hubConnection.On<string, string>("ReceiveMessage", async (r, m) =>
         {

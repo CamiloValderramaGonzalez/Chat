@@ -12,6 +12,7 @@ services:
       - "5024:80"
     networks:
       - app-chat
+    container_name: Bot.Api
 
   chat.ui:
     image: ${DOCKER_REGISTRY-}chatui
@@ -21,6 +22,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80
+      - HTTPLOCALHOST=http://localhost
     ports:
       - "5039:80"
     volumes:
@@ -28,6 +30,7 @@ services:
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
     networks:
       - app-chat
+    container_name: Chat.UI
 
   producer.api:
     image: ${DOCKER_REGISTRY-}producerapi
@@ -40,6 +43,7 @@ services:
       - "5212:80"
     networks:
       - app-chat
+    container_name: Producer.Api
 
 networks:
   app-chat:
