@@ -12,7 +12,7 @@ namespace Bot.Infrastructure.Repository
                 Newtonsoft.Json.JsonConvert.SerializeObject(post), Encoding.UTF8, "application/json");
 
             using var client = new HttpClient();
-            var request = new HttpRequestMessage(HttpMethod.Post, "https://localhost:7293/api/Chatapi");
+            var request = new HttpRequestMessage(HttpMethod.Post, "http://Chat.Ui:5039/api/Chatapi");
             request.Content = content;
 
            await client.SendAsync(request);

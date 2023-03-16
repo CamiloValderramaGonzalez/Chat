@@ -27,45 +27,47 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bus.Infrastructure.IoC", "B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{F3B12744-6A2A-44BA-8C9C-2D727BC32900}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bot.Api", "Bot.Api\Bot.Api.csproj", "{13E096B7-B3AB-410C-8938-6AE348303062}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bot.Api", "Bot.Api\Bot.Api.csproj", "{13E096B7-B3AB-410C-8938-6AE348303062}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{74604235-844C-489B-B485-6F9306BA3DA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bot.Domain", "Bot.Domain\Bot.Domain.csproj", "{1B143806-0197-4B80-823A-CE0F16460FB8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bot.Domain", "Bot.Domain\Bot.Domain.csproj", "{1B143806-0197-4B80-823A-CE0F16460FB8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{4A40787F-3603-4FBF-AEE2-34F4D53BFFE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bot.Application", "Bot.Application\Bot.Application.csproj", "{995DA966-0195-45EC-B65D-A8A402F1BB27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bot.Application", "Bot.Application\Bot.Application.csproj", "{995DA966-0195-45EC-B65D-A8A402F1BB27}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Producer", "Producer", "{764DBDAE-5A7B-43EF-A71E-16E79E9A5F66}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{4A67B27F-BF82-4A27-9680-72C8E1260659}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Producer.Api", "Producer.Api\Producer.Api.csproj", "{A21C5B75-7399-4591-B6AC-543458872A4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Producer.Api", "Producer.Api\Producer.Api.csproj", "{A21C5B75-7399-4591-B6AC-543458872A4A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{E24DB8E5-292E-492E-96BF-E745820D1557}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{0E9C2B1B-0335-45D9-9275-196296421F74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Producer.Domain", "Producer.Domain\Producer.Domain.csproj", "{06A50E07-FF39-4129-8B29-C41C9CFB12A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Producer.Domain", "Producer.Domain\Producer.Domain.csproj", "{06A50E07-FF39-4129-8B29-C41C9CFB12A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Producer.Application", "Producer.Application\Producer.Application.csproj", "{41C465A9-645C-4294-AD1A-F57FBA5FA969}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Producer.Application", "Producer.Application\Producer.Application.csproj", "{41C465A9-645C-4294-AD1A-F57FBA5FA969}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{7EE3AF78-33A0-4E43-A007-F0881C9D867A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chat.Infrastructure", "Chat.Infrastructure\Chat.Infrastructure.csproj", "{6EE1617D-3C39-4BE1-AB00-A8DE81B96598}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chat.Infrastructure", "Chat.Infrastructure\Chat.Infrastructure.csproj", "{6EE1617D-3C39-4BE1-AB00-A8DE81B96598}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{0916605E-7DDD-4C58-855E-48050C030EDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chat.Application", "Chat.Application\Chat.Application.csproj", "{47BDA794-2984-44D3-B676-E89B7E1F3ED6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chat.Application", "Chat.Application\Chat.Application.csproj", "{47BDA794-2984-44D3-B676-E89B7E1F3ED6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{D2A9D94E-4707-4114-A66E-BAF8F837FB92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chat.Domain", "Chat.Domain\Chat.Domain.csproj", "{815D1EB9-7B53-4A79-83CE-3709F1601A78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chat.Domain", "Chat.Domain\Chat.Domain.csproj", "{815D1EB9-7B53-4A79-83CE-3709F1601A78}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{4D4FEC62-A358-4FC7-B6FE-BEC3F2126C7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bot.Infrastructure", "Bot.Infrastructure\Bot.Infrastructure.csproj", "{474BB649-A42D-4D4B-836F-D9AE73B53711}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bot.Infrastructure", "Bot.Infrastructure\Bot.Infrastructure.csproj", "{474BB649-A42D-4D4B-836F-D9AE73B53711}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{1C756B0D-771C-41AA-8317-170F966AC3AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -129,6 +131,10 @@ Global
 		{474BB649-A42D-4D4B-836F-D9AE73B53711}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{474BB649-A42D-4D4B-836F-D9AE73B53711}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{474BB649-A42D-4D4B-836F-D9AE73B53711}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C756B0D-771C-41AA-8317-170F966AC3AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C756B0D-771C-41AA-8317-170F966AC3AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C756B0D-771C-41AA-8317-170F966AC3AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C756B0D-771C-41AA-8317-170F966AC3AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
