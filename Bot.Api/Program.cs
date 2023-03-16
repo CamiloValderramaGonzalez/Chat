@@ -20,7 +20,9 @@ builder.Services.Configure<RabbitMQSettings>(builder.Configuration.GetSection("R
 builder.Services.RegisterServices(builder.Configuration);
 
 builder.Services.AddTransient<IChatRepository, ChatRepository>();
+builder.Services.AddTransient<IStockRepository, StockRepository>();
 builder.Services.AddTransient<IChatService, ChatService>();
+builder.Services.AddTransient<IStockService, StockService>();
 builder.Services.AddTransient<IEventHandler<PostCreatedEvent>, PostEventHandler>();
 
 builder.Services.AddTransient<PostEventHandler>();

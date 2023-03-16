@@ -8,19 +8,23 @@ namespace Bot.Domain.EventHandlers
     public class PostEventHandler : IEventHandler<PostCreatedEvent>
     {
         private readonly IChatService _chatService;
+        private readonly IStockService _stockService;
 
-        public PostEventHandler(IChatService chatService)
+        public PostEventHandler(IChatService chatService, IStockService stockService)
         {
             _chatService = chatService;
+            _stockService = stockService;
         }
 
-        public Task Handle(PostCreatedEvent @event)
+        public async Task<Task> Handle(PostCreatedEvent @event)
         {
+            var message = await _stockService.GetStockData(@event.Message);
+
             var post = new Post
             {
-                User = "Sctock Bot",
-                Message = @event.Message,
-                Room= @event.Room
+                User = "Stock Bot",
+                Message = message,
+                Room = @event.Room
             };
 
             _chatService.SetPost(post);

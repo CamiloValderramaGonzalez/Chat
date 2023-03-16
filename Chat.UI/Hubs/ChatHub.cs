@@ -15,9 +15,9 @@ namespace Chat.UI.Hubs
 
         public async Task SendMessage(string user, string message, string room)
         {
-            if (VerifyCommand(message)) SendCommand(user, message, room);
+            if (VerifyCommand(message)) SendCommand(user, message.Trim(), room);
 
-            await Clients.Group(room).SendAsync("ReceiveMessage", user, message);
+            await Clients.Group(room).SendAsync("ReceiveMessage", user, message.Trim());
         }
 
         public async Task JoinRoom(string room)

@@ -21,6 +21,5 @@ namespace Bot.Application.Services
         {
             _chatRepository.SetPost(post);
         }
-
     }
 }

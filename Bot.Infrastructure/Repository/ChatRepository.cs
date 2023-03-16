@@ -15,7 +15,7 @@ namespace Bot.Infrastructure.Repository
             var request = new HttpRequestMessage(HttpMethod.Post, "https://localhost:7293/api/Chatapi");
             request.Content = content;
 
-            var response = await client.SendAsync(request);
+           await client.SendAsync(request);
         }
     }
 }
