@@ -7,7 +7,10 @@ using Chat.UI.Data;
 using Chat.UI.Hubs;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -68,5 +71,11 @@ app.UseEndpoints(endpoints =>
 
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
+
+using var scope = app.Services.CreateScope();
+var services = scope.ServiceProvider;
+
+var context = services.GetRequiredService<ApplicationDbContext>();
+context.Database.Migrate();
 
 app.Run();
