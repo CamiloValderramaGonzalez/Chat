@@ -17,4 +17,8 @@
     <ProjectReference Include="..\Bus.Infrastructure.IoC\Bus.Infrastructure.IoC.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
 </Project>
