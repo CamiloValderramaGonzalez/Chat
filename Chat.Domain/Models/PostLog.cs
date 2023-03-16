@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Chat.UI.Data.Models
+namespace Chat.Domain.Models
 {
-    public class Post
+    public class PostLog
     {
         public int Id { get; set; }
         public string User { get; set; }

@@ -1,10 +1,10 @@
-﻿using Chat.UI.Data.Models;
+﻿using Chat.Domain.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
-namespace Chat.UI.Data
+namespace Chat.Infrastructure.Context
 {
     public class ApplicationDbContext : IdentityDbContext
     {
@@ -17,6 +17,6 @@ namespace Chat.UI.Data
         {
 
         }
-        public DbSet<Post> Post { get; set; }
+        public DbSet<PostLog> PostLog { get; set; }
     }
 }

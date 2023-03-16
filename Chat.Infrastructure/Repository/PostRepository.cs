@@ -6,6 +6,7 @@ namespace Chat.Infrastructure.Repository
 {
     public class PostRepository : IPostRepository
     {
+        //private ApplicationDbContext _context;
         public async Task SetPost(Post post)
         {
             var content = new StringContent(
@@ -17,5 +18,15 @@ namespace Chat.Infrastructure.Repository
 
             var response = await client.SendAsync(request);
         }
+
+        //public async Task addPost(Post post)
+        //{
+        //    _context.Add(log);
+        //    _context.SaveChanges();
+        //}
+        //public IEnumerable<TransferLog> GetTransferLogs()
+        //{
+
+        //}
     }
 }

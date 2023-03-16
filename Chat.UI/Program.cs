@@ -1,9 +1,9 @@
 using Chat.Application.Interfaces;
 using Chat.Application.Services;
 using Chat.Domain.Interfaces;
+using Chat.Infrastructure.Context;
 using Chat.Infrastructure.Repository;
 using Chat.UI.Areas.Identity;
-using Chat.UI.Data;
 using Chat.UI.Hubs;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
